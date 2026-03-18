@@ -66,13 +66,11 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mb-6"
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/images/logo.png"
             alt="KatzeFAIRsichert Logo"
-            width={160}
-            height={160}
             className="w-64 h-64 md:w-[22rem] md:h-[22rem] lg:w-[26rem] lg:h-[26rem] drop-shadow-lg"
-            priority
           />
         </motion.div>
 
