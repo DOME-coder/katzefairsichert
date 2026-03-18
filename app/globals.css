@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-warm:   #F3EEF8;
+    --color-white:     #FFFFFF;
+    --color-text-dark: #2D2D3A;
+    --color-accent:    #9B6DBF;
+    --color-accent-dark: #7A4FA0;
+    --color-gray-light: #F7F4FB;
+    --color-gray-mid:  #8E8EA0;
+    --color-border:    #DDD5EA;
+    --color-success:   #4CAF50;
+    --color-error:     #E57373;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-raleway), sans-serif;
+    color: #2D2D3A;
+    line-height: 1.7;
+  }
+}
