@@ -9,11 +9,11 @@ export default function Footer() {
         {/* Logo + Company name */}
         <div className="flex items-center gap-3">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-header.png"
             alt="KatzeFAIRsichert Logo"
-            width={32}
-            height={32}
-            className="w-8 h-8 brightness-200"
+            width={80}
+            height={29}
+            className="h-7 w-auto"
           />
           <span className="font-heading text-lg font-semibold">{SITE.name}</span>
         </div>

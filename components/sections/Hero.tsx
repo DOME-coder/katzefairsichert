@@ -68,9 +68,9 @@ export default function Hero() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/logo.png"
+            src="/images/logo-hero.png"
             alt="KatzeFAIRsichert Logo"
-            className="w-64 h-64 md:w-[22rem] md:h-[22rem] lg:w-[26rem] lg:h-[26rem] drop-shadow-lg"
+            className="w-72 md:w-[24rem] lg:w-[28rem] h-auto drop-shadow-lg"
           />
         </motion.div>
 

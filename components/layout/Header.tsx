@@ -33,17 +33,14 @@ export default function Header() {
       >
         <div className="max-w-content mx-auto w-full px-6 flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <a href="/" className="flex items-center hover:opacity-80 transition-opacity">
             <Image
-              src="/images/logo.png"
+              src="/images/logo-header.png"
               alt="KatzeFAIRsichert Logo"
-              width={48}
-              height={48}
-              className="w-12 h-12 brightness-0"
+              width={160}
+              height={57}
+              className="h-10 md:h-12 w-auto"
             />
-            <span className="font-heading font-bold text-xl text-brand-text">
-              {SITE.name}
-            </span>
           </a>
 
           {/* Desktop Navigation */}
