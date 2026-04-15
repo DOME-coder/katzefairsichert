@@ -6,6 +6,8 @@ import Image from 'next/image'
 import { BarChart3 } from 'lucide-react'
 import { WISSENSWERTES } from '@/lib/constants'
 import Accordion from '@/components/ui/Accordion'
+import SectionHeader from '@/components/ui/SectionHeader'
+import { EMIL } from '@/components/ui/AnimateInView'
 
 export default function Wissenswertes() {
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null)
@@ -45,34 +47,30 @@ export default function Wissenswertes() {
   }))
 
   return (
-    <section id="wissenswertes" className="bg-white py-12 md:py-20">
+    <section id="wissenswertes" className="relative bg-white py-20 md:py-32">
       <div className="max-w-content mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+        <SectionHeader
+          eyebrow="Wissen"
+          title={WISSENSWERTES.title}
+          subtitle={WISSENSWERTES.subtitle}
+        />
+        <motion.p
+          className="mt-4 text-center font-body text-sm text-brand-accent font-medium"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.85, ease: EMIL, delay: 0.3 }}
         >
-          <h2 className="font-heading text-[1.625rem] md:text-[2.25rem] font-semibold text-brand-text">
-            {WISSENSWERTES.title}
-          </h2>
-          <p className="mt-3 font-heading text-base text-brand-grayMid">
-            {WISSENSWERTES.subtitle}
-          </p>
-          <p className="mt-2 font-heading text-sm text-brand-accent font-medium">
-            Fahre mit der Maus über die Punkte, um mehr zu erfahren
-          </p>
-        </motion.div>
+          Fahre mit der Maus über die Punkte, um mehr zu erfahren
+        </motion.p>
 
         {/* Desktop: Image with hotspots */}
         <motion.div
-          className="mt-10 hidden md:block relative"
-          initial={{ opacity: 0, y: 30 }}
+          className="mt-14 hidden md:block relative"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.85, ease: EMIL, delay: 0.1 }}
           onMouseLeave={() => {
             if (!isTouchDevice) {
               cancelCloseTimer()
@@ -80,17 +78,17 @@ export default function Wissenswertes() {
             }
           }}
         >
-          <div className="relative w-full aspect-[16/10] bg-brand-grayLight rounded-2xl overflow-visible border border-brand-border shadow-lg">
+          <div className="relative w-full aspect-[16/10] bg-gradient-to-br from-brand-grayLight to-white rounded-3xl overflow-visible border border-brand-border/60 shadow-brand-md">
             <Image
               src="/images/katzen/kitten-blume.jpg"
               alt="Katze – häufige Behandlungen"
               fill
-              className="object-contain"
+              className="object-contain rounded-3xl"
               quality={100}
               priority
             />
 
-            {/* Hotspots */}
+            {/* Hotspots — Spec point 21 */}
             {WISSENSWERTES.hotspots.map((hotspot) => {
               const isActive = activeHotspot === hotspot.id
 
@@ -121,40 +119,43 @@ export default function Wissenswertes() {
                     }
                   }}
                 >
-                  {/* Pulse ring – only when NOT active */}
+                  {/* Dual concentric ripple rings — Spec point 21 */}
                   {!isActive && (
-                    <span className="absolute -inset-2 rounded-full bg-brand-accent/30 animate-ping" />
-                  )}
-                  {!isActive && (
-                    <span className="absolute -inset-1 rounded-full bg-brand-accent/20" />
+                    <>
+                      <span className="absolute inset-0 rounded-full bg-brand-accent/40 animate-ripple pointer-events-none" />
+                      <span className="absolute inset-0 rounded-full bg-brand-accent/40 animate-ripple-delay pointer-events-none" />
+                    </>
                   )}
 
-                  {/* Hotspot button */}
+                  {/* Center dot */}
                   <div
-                    className={`relative w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 shadow-lg ${
+                    className={`relative w-9 h-9 rounded-full bg-gradient-to-br from-brand-accent to-brand-accentDark shadow-brand-glow ring-2 ring-white flex items-center justify-center cursor-pointer transition-all duration-450 ease-emil ${
                       isActive
-                        ? 'bg-brand-accentDark scale-110 ring-4 ring-brand-accent/40'
+                        ? 'scale-125'
                         : activeHotspot !== null
-                          ? 'opacity-0 pointer-events-none'
-                          : 'bg-brand-accent hover:scale-110 hover:shadow-xl'
+                          ? 'opacity-0 pointer-events-none scale-75'
+                          : 'hover:scale-110'
                     }`}
                     aria-label={`${hotspot.id}. ${hotspot.title}`}
                   >
-                    <span className="font-heading text-sm font-bold text-white">
+                    <span className="font-heading text-sm font-bold tnum text-white">
                       {hotspot.id}
                     </span>
                   </div>
 
-                  {/* Info Bubble */}
+                  {/* Info Bubble — spring overshoot */}
                   <AnimatePresence>
                     {isActive && (
                       <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0.9, opacity: 0 }}
-                        transition={{ duration: 0.15, ease: 'easeOut' }}
-                        className="absolute z-[60] w-[320px] bg-white border-2 border-brand-accent/30 rounded-2xl shadow-2xl p-6"
+                        initial={{ scale: 0.85, opacity: 0, y: 8 }}
+                        animate={{ scale: 1, opacity: 1, y: 0 }}
+                        exit={{ scale: 0.85, opacity: 0, y: 4 }}
+                        transition={{
+                          duration: 0.35,
+                          ease: [0.34, 1.56, 0.64, 1],
+                        }}
                         style={{
+                          transformOrigin: `${hotspot.position.x > 55 ? 'right' : 'left'} ${hotspot.position.y > 50 ? 'bottom' : 'top'}`,
                           ...(hotspot.position.x > 55
                             ? { right: '3rem' }
                             : { left: '3rem' }),
@@ -162,6 +163,7 @@ export default function Wissenswertes() {
                             ? { bottom: '-1rem' }
                             : { top: '-1rem' }),
                         }}
+                        className="absolute z-[60] w-[340px] bg-white/95 backdrop-blur-md border-2 border-brand-accent/30 rounded-2xl shadow-brand-xl p-6"
                         onMouseEnter={() => {
                           if (!isTouchDevice) cancelCloseTimer()
                         }}
@@ -170,35 +172,37 @@ export default function Wissenswertes() {
                         }}
                       >
                         <div className="flex items-center gap-3 mb-3">
-                          <span className="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center text-white font-heading text-sm font-bold shrink-0">
+                          <span className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-accent to-brand-accentDark shadow-brand-glow ring-2 ring-white flex items-center justify-center text-white font-heading text-sm font-bold tnum shrink-0">
                             {hotspot.id}
                           </span>
                           <div>
-                            <h4 className="font-heading text-base font-bold text-brand-text leading-tight">
+                            <h4 className="font-heading text-base font-bold tracking-tight-2 text-brand-text leading-tight">
                               {hotspot.title}
                             </h4>
-                            <p className="font-heading text-xs text-brand-grayMid">
+                            <p className="font-body text-xs text-brand-grayMid">
                               {hotspot.bodyPart}
                             </p>
                           </div>
                         </div>
 
-                        <div className="w-full h-px bg-brand-border mb-3" />
+                        <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-border to-transparent mb-3" />
 
-                        <p className="font-heading text-sm text-brand-text leading-[1.7]">
+                        <p className="font-body text-sm text-brand-text leading-[1.7]">
                           {hotspot.description}
                         </p>
 
                         <div className="mt-3">
-                          <p className="font-heading text-xs font-semibold text-brand-accent mb-1">Das leisten wir:</p>
-                          <p className="font-heading text-xs text-brand-grayMid leading-[1.6]">
+                          <p className="font-heading text-[10px] font-semibold uppercase tracking-eyebrow text-brand-accent mb-1">
+                            Das leisten wir
+                          </p>
+                          <p className="font-body text-xs text-brand-grayMid leading-[1.6]">
                             {hotspot.leistung}
                           </p>
                         </div>
 
-                        <div className="mt-3 flex items-center gap-2 bg-brand-lavender rounded-lg px-3 py-2">
+                        <div className="mt-4 flex items-center gap-2 bg-brand-lavender rounded-xl px-3 py-2.5 ring-1 ring-brand-accent/20">
                           <BarChart3 size={14} className="text-brand-accent shrink-0" />
-                          <span className="font-heading text-xs font-semibold text-brand-text">
+                          <span className="font-heading text-xs font-semibold text-brand-text tnum">
                             Behandlungskosten: {hotspot.kosten}
                           </span>
                         </div>
@@ -212,8 +216,8 @@ export default function Wissenswertes() {
         </motion.div>
 
         {/* Mobile: Image + Accordion */}
-        <div className="mt-10 md:hidden">
-          <div className="relative w-full aspect-[16/10] bg-brand-grayLight rounded-2xl overflow-hidden border border-brand-border">
+        <div className="mt-14 md:hidden">
+          <div className="relative w-full aspect-[16/10] bg-brand-grayLight rounded-2xl overflow-hidden border border-brand-border/60 shadow-brand-sm">
             <Image
               src="/images/katzen/kitten-blume.jpg"
               alt="Katze – häufige Behandlungen"
@@ -222,7 +226,7 @@ export default function Wissenswertes() {
               quality={100}
             />
           </div>
-          <div className="mt-6">
+          <div className="mt-8">
             <Accordion items={accordionItems} />
           </div>
         </div>

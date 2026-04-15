@@ -13,28 +13,45 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center px-7 py-3.5 rounded-lg font-heading font-semibold text-base tracking-wide transition-all duration-200'
+    'group relative inline-flex items-center justify-center font-heading font-semibold text-base tracking-tight-2 rounded-full transition-all duration-600 ease-emil will-change-transform'
 
   const variants = {
+    // Primary — Spec point 12
     primary:
-      'bg-brand-accent text-white hover:bg-brand-accentDark hover:scale-[1.02]',
+      'overflow-hidden px-12 py-4 bg-gradient-to-r from-brand-accent via-brand-accentDark to-brand-accent bg-220 animate-gradient-drift text-white shadow-brand-glow ring-1 ring-white/20 hover:-translate-y-0.5',
+    // Secondary — Spec point 13
     secondary:
-      'bg-transparent border-2 border-brand-accent text-brand-accent hover:bg-brand-lavender',
+      'px-10 py-3.5 bg-white/70 backdrop-blur-sm border border-brand-accent/60 text-brand-accent hover:bg-brand-lavender hover:border-brand-accent hover:-translate-y-0.5 shadow-brand-sm',
   }
 
   const classes = `${base} ${variants[variant]} ${className}`
 
+  // Inner radial light-sweep on hover (only for primary)
+  const innerSweep =
+    variant === 'primary' ? (
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-emil group-hover:opacity-100"
+        style={{
+          background:
+            'radial-gradient(circle at 30% 50%, rgba(255,255,255,0.22), transparent 60%)',
+        }}
+      />
+    ) : null
+
   if (href) {
     return (
       <a href={href} className={classes}>
-        {children}
+        {innerSweep}
+        <span className="relative z-10 flex items-center gap-2">{children}</span>
       </a>
     )
   }
 
   return (
     <button className={classes} {...props}>
-      {children}
+      {innerSweep}
+      <span className="relative z-10 flex items-center gap-2">{children}</span>
     </button>
   )
 }

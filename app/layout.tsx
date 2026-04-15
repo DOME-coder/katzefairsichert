@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body
-        className={`${raleway.variable} ${poppins.variable} font-heading text-brand-text bg-brand-lavender`}
+        className={`${raleway.variable} ${poppins.variable} font-body text-brand-text bg-white antialiased`}
       >
         <Header />
         <main>{children}</main>

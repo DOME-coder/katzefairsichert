@@ -256,7 +256,7 @@ export const EXTRA_LEISTUNGEN = {
       text: 'Bevor spätabends ein Besuch bei einer Tierarztpraxis notwendig ist, kann auch per Smartphone oder Telefon eine digitale Sprechstunde direkt mit einem niedergelassenen Tierarzt genutzt werden. Wir übernehmen auch die Kosten für eine telemedizinische Beratung.',
     },
     {
-      image: '/images/katzen/kitten.jpg',
+      image: '/images/katzen/tierarzt-katze.jpg',
       title: 'Freie Tierarztwahl & Direktabrechnung',
       text: 'Die Tierarztpraxis bzw. Tierklinik kann frei gewählt werden. Damit nach einer Operation die Genesung im Mittelpunkt stehen kann, übernehmen wir gerne die Direktabrechnung mit der Tierarztpraxis oder Klinik.',
     },
@@ -348,7 +348,7 @@ export const WISSENSWERTES = {
       leistung: 'FORL-Behandlungen sind in allen Tarifen ab Smart mitversichert. Wir übernehmen die Kosten für Untersuchungen am letzten Untersuchungstag vor der OP, an dem die Notwendigkeit zur Durchführung festgestellt wurde. Nachbehandlung sowie Aufenthalt in der Tierklinik je nach Tarif bis zu 30 Tagen nach der OP.',
       kosten: 'ca. 1.400 bis 2.000 €',
       frequency: 'Sehr häufig bei Katzen',
-      position: { x: 18, y: 30 },
+      position: { x: 68, y: 36 },
     },
     {
       id: 3,
@@ -388,7 +388,7 @@ export const WISSENSWERTES = {
       leistung: 'Zur Behandlung einer Ohrenentzündung muss zunächst das Ohr gesäubert werden und ein Ohrenmedikament angewendet werden. Bei besonders schweren Fällen sind zudem Schmerzmittel und Antibiotika notwendig. Im Vollschutz sind je nach Tarif bis zu 6.000 Euro jährlich für Heilbehandlungen abgesichert.',
       kosten: 'bis zu 250 €',
       frequency: 'Häufig bei Katzen',
-      position: { x: 15, y: 25 },
+      position: { x: 62, y: 25 },
     },
     {
       id: 7,
@@ -408,7 +408,7 @@ export const WISSENSWERTES = {
       leistung: 'Kreuzbandoperationen sind in allen Tarifen abgedeckt. Wir übernehmen die Kosten für Untersuchungen am letzten Untersuchungstag vor der OP und die Nachbehandlung bis zu 30 Tage nach der OP (ambulant und stationär).',
       kosten: 'bis zu 1.800 €',
       frequency: 'Selten, aber kostspielig',
-      position: { x: 70, y: 70 },
+      position: { x: 40, y: 70 },
     },
   ] satisfies HotspotItem[],
 } as const
@@ -510,7 +510,7 @@ export const CONTACT = {
 // ─────────────────────────────────────────────
 export const FOOTER = {
   company: 'SENATOR Versicherungsmakler GmbH',
-  copyright: '© 2025 SENATOR Versicherungsmakler GmbH',
+  copyright: '© 2026 SENATOR Versicherungsmakler GmbH',
   links: [
     { label: 'Impressum', href: '/impressum' },
     { label: 'Datenschutz', href: '/datenschutz' },

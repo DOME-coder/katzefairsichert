@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { VORTEILE_LEISTUNGEN } from '@/lib/constants'
+import SectionHeader from '@/components/ui/SectionHeader'
+import { EMIL } from '@/components/ui/AnimateInView'
 
 const MAX_CHARS = 120
 
@@ -11,64 +13,58 @@ export default function VorteileLeistungen() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-brand-lavender py-12 md:py-20">
-      <div className="max-w-content mx-auto px-6">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        >
-          <h2 className="font-heading text-[1.625rem] md:text-[2.25rem] font-semibold text-brand-text">
-            {VORTEILE_LEISTUNGEN.title}
-          </h2>
-          <p className="mt-3 font-heading text-base text-brand-grayMid">
-            {VORTEILE_LEISTUNGEN.subtitle}
-          </p>
-        </motion.div>
+    <section className="relative bg-brand-lavender py-20 md:py-32 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 -left-24 w-[28rem] h-[28rem] bg-brand-accent/[0.05] rounded-full blur-3xl animate-float-delayed"
+      />
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="relative max-w-content mx-auto px-6">
+        <SectionHeader
+          eyebrow="Leistungen"
+          title={VORTEILE_LEISTUNGEN.title}
+          subtitle={VORTEILE_LEISTUNGEN.subtitle}
+        />
+
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {VORTEILE_LEISTUNGEN.items.map((item, index) => {
             const isExpanded = expandedIndex === index
             const needsTruncation = item.description.length > MAX_CHARS
-            const displayText = isExpanded || !needsTruncation
-              ? item.description
-              : item.description.slice(0, MAX_CHARS) + '...'
+            const displayText =
+              isExpanded || !needsTruncation
+                ? item.description
+                : item.description.slice(0, MAX_CHARS) + '…'
 
             return (
               <motion.div
                 key={item.title}
-                className="group relative bg-white rounded-xl overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:border-brand-accent border-2 border-transparent flex flex-col"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.05 }}
-                whileHover={{ y: -6 }}
+                className="group gradient-border relative bg-white/85 backdrop-blur-sm rounded-2xl overflow-hidden shadow-brand-sm transition-all duration-600 ease-emil hover:-translate-y-2 hover:shadow-brand-lg hover:border-brand-accent/40 border border-brand-border/60 flex flex-col"
+                initial={{ opacity: 0, y: 24, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.85, ease: EMIL, delay: index * 0.06 }}
               >
                 {/* Top accent stripe */}
-                <div className="h-1 bg-gradient-to-r from-brand-accent to-brand-accentDark" />
+                <div className="h-1 bg-gradient-to-r from-brand-accent via-brand-accentDark to-brand-accent bg-220 animate-gradient-drift" />
 
                 <div className="p-6 flex flex-col flex-1">
-                  {/* Title */}
-                  <h3 className="font-heading text-lg font-bold text-brand-text mb-3">
+                  <h3 className="font-heading text-lg font-bold tracking-tight-2 text-brand-text mb-3">
                     {item.title}
                   </h3>
 
-                  {/* Description with expand */}
-                  <p className="font-heading text-sm text-brand-grayMid leading-[1.7] flex-1">
+                  <p className="font-body text-sm text-brand-grayMid leading-[1.7] flex-1">
                     {displayText}
                   </p>
 
                   {needsTruncation && (
                     <button
                       onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                      className="mt-3 flex items-center gap-1 font-heading text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors self-start"
+                      className="mt-4 link-underline inline-flex items-center gap-1 font-heading text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors duration-450 ease-emil self-start"
                     >
                       {isExpanded ? 'Weniger' : 'Mehr erfahren'}
                       <motion.span
                         animate={{ rotate: isExpanded ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.45, ease: EMIL }}
                       >
                         <ChevronDown size={16} />
                       </motion.span>

@@ -19,9 +19,22 @@ export default function Home() {
       <VorteileLeistungen />
       <TarifVergleich />
       <ExtraLeistungen />
-      <SectionDivider imageSrc="/images/katzen/vet-exam.jpg" alt="Katze beim Tierarzt" />
+      <SectionDivider
+        imageSrc="/images/katzen/tierarzt-katze-2.jpg"
+        alt="Katze in der Tierklinik"
+        parallax={false}
+        height="xl"
+        focusY="35%"
+      />
       <Versicherungsfall />
-      <SectionDivider imageSrc="/images/katzen/cat-window.jpg" alt="Katze am Fenster" />
+      <SectionDivider
+        imageSrc="/images/katzen/Katzenfairsichert_Bild_Website.jpg"
+        alt="Katze"
+        parallax={false}
+        height="xl"
+        focusX="25%"
+        focusY="60%"
+      />
       <Wissenswertes />
       <FAQ />
       <CTA />
