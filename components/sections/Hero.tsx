@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { HERO } from '@/lib/constants'
 import Button from '@/components/ui/Button'
@@ -10,7 +10,6 @@ const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ''
 const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
   // Parallax background — Spec point 16/17
@@ -20,27 +19,6 @@ export default function Hero() {
   })
   const bgY = useTransform(scrollYProgress, [0, 1], ['-6%', '12%'])
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.05])
-
-  // Play/pause video based on visibility
-  useEffect(() => {
-    const video = videoRef.current
-    const section = sectionRef.current
-    if (!video || !section) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {})
-        } else {
-          video.pause()
-        }
-      },
-      { threshold: 0.25 }
-    )
-
-    observer.observe(section)
-    return () => observer.disconnect()
-  }, [])
 
   const headlineWords = HERO.headline.split(' ')
 
@@ -56,12 +34,12 @@ export default function Hero() {
         className="absolute -inset-y-[10%] inset-x-0 will-change-transform"
       >
         <video
-          ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           poster="/images/katzen/hero-katzen.jpg"
         >
           <source src="/videos/hero-desktop.mp4" type="video/mp4" />
