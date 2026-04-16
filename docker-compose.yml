@@ -8,19 +8,3 @@ services:
       - NEXT_PUBLIC_WHATSAPP_NUMBER=${NEXT_PUBLIC_WHATSAPP_NUMBER:-}
       - NEXT_PUBLIC_EMAIL=${NEXT_PUBLIC_EMAIL:-}
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 40s
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 512M
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "3"
