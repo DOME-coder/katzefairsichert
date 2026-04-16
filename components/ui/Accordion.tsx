@@ -39,7 +39,7 @@ export default function Accordion({ items }: AccordionProps) {
 
             <button
               type="button"
-              className="relative w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+              className="relative w-full flex items-center justify-between gap-4 px-5 md:px-6 py-4 md:py-5 text-left min-h-[44px]"
               onClick={() => toggle(index)}
               aria-expanded={isOpen}
             >
@@ -49,7 +49,7 @@ export default function Accordion({ items }: AccordionProps) {
               <motion.span
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.45, ease: EMIL }}
-                className="flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full border border-brand-border bg-white text-brand-accent shadow-brand-xs"
+                className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full border border-brand-border bg-white text-brand-accent shadow-brand-xs"
                 aria-hidden="true"
               >
                 <ChevronDown size={16} strokeWidth={2.25} />

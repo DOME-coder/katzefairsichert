@@ -42,7 +42,7 @@ export default function Versicherungsfall() {
             return (
               <motion.div
                 key={step.step}
-                className="group gradient-border relative w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] bg-white/85 backdrop-blur-sm rounded-2xl overflow-hidden shadow-brand-sm transition-all duration-600 ease-emil hover:-translate-y-2 hover:shadow-brand-lg hover:border-brand-accent/40 border border-brand-border/60 flex flex-col"
+                className="group gradient-border relative w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] bg-white/85 backdrop-blur-sm rounded-2xl overflow-hidden shadow-brand-sm transition-all duration-600 ease-emil hover:-translate-y-2 hover:shadow-brand-lg hover:border-brand-accent/40 border border-brand-border/60 flex flex-col"
                 initial={{ opacity: 0, y: 24, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.15 }}
@@ -95,7 +95,7 @@ export default function Versicherungsfall() {
                   {needsTruncation && (
                     <button
                       onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                      className="mt-4 link-underline inline-flex items-center gap-1 font-heading text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors duration-450 ease-emil self-start"
+                      className="mt-4 link-underline inline-flex items-center gap-1 min-h-[44px] py-2 font-heading text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors duration-450 ease-emil self-start"
                     >
                       {isExpanded ? 'Weniger' : 'Mehr erfahren'}
                       <motion.span

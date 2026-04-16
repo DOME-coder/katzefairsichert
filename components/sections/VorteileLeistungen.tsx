@@ -26,7 +26,7 @@ export default function VorteileLeistungen() {
           subtitle={VORTEILE_LEISTUNGEN.subtitle}
         />
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {VORTEILE_LEISTUNGEN.items.map((item, index) => {
             const isExpanded = expandedIndex === index
             const needsTruncation = item.description.length > MAX_CHARS
@@ -59,7 +59,7 @@ export default function VorteileLeistungen() {
                   {needsTruncation && (
                     <button
                       onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                      className="mt-4 link-underline inline-flex items-center gap-1 font-heading text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors duration-450 ease-emil self-start"
+                      className="mt-4 link-underline inline-flex items-center gap-1 min-h-[44px] py-2 font-heading text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors duration-450 ease-emil self-start"
                     >
                       {isExpanded ? 'Weniger' : 'Mehr erfahren'}
                       <motion.span

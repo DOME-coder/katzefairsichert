@@ -52,16 +52,16 @@ export default function Vorteile() {
             return (
               <motion.div
                 key={item.title}
-                className="group gradient-border relative bg-white/85 backdrop-blur-sm rounded-2xl border border-brand-border/60 p-8 flex flex-col items-center text-center shadow-brand-sm transition-all duration-600 ease-emil hover:-translate-y-2 hover:shadow-brand-lg hover:border-brand-accent/40"
+                className="group gradient-border relative bg-white/85 backdrop-blur-sm rounded-2xl border border-brand-border/60 p-6 md:p-8 flex flex-col items-center text-center shadow-brand-sm transition-all duration-600 ease-emil hover:-translate-y-2 hover:shadow-brand-lg hover:border-brand-accent/40"
                 initial={{ opacity: 0, y: 24, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.85, ease: EMIL, delay: index * 0.08 }}
               >
                 {Icon && (
-                  <div className="w-16 h-16 rounded-2xl bg-brand-grayLight ring-1 ring-brand-border/50 flex items-center justify-center text-brand-accent transition-all duration-600 ease-emil group-hover:bg-brand-accent/10 group-hover:ring-brand-accent/30 group-hover:shadow-brand-glow group-hover:text-brand-accentDark">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-brand-grayLight ring-1 ring-brand-border/50 flex items-center justify-center text-brand-accent transition-all duration-600 ease-emil group-hover:bg-brand-accent/10 group-hover:ring-brand-accent/30 group-hover:shadow-brand-glow group-hover:text-brand-accentDark">
                     <Icon
-                      size={28}
+                      size={24}
                       strokeWidth={1.75}
                       className="transition-transform duration-600 group-hover:scale-110 group-hover:-rotate-6"
                       style={{ transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}

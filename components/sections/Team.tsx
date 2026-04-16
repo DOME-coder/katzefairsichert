@@ -32,14 +32,14 @@ export default function Team() {
           {TEAM.members.map((member, index) => (
             <motion.div
               key={index}
-              className="group gradient-border relative bg-white/85 backdrop-blur-sm rounded-2xl border border-brand-border/60 p-8 flex flex-col items-center text-center shadow-brand-sm transition-all duration-600 ease-emil hover:-translate-y-2 hover:shadow-brand-lg hover:border-brand-accent/40"
+              className="group gradient-border relative bg-white/85 backdrop-blur-sm rounded-2xl border border-brand-border/60 p-6 md:p-8 flex flex-col items-center text-center shadow-brand-sm transition-all duration-600 ease-emil hover:-translate-y-2 hover:shadow-brand-lg hover:border-brand-accent/40"
               initial={{ opacity: 0, y: 24, scale: 0.97 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.85, ease: EMIL, delay: index * 0.08 }}
             >
               {member.image ? (
-                <div className="relative w-28 h-28 rounded-full overflow-hidden ring-1 ring-brand-border/50 transition-all duration-600 ease-emil group-hover:ring-brand-accent/30 group-hover:shadow-brand-glow">
+                <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-1 ring-brand-border/50 transition-all duration-600 ease-emil group-hover:ring-brand-accent/30 group-hover:shadow-brand-glow">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -48,7 +48,7 @@ export default function Team() {
                   />
                 </div>
               ) : (
-                <div className="w-28 h-28 rounded-full bg-brand-lavender flex items-center justify-center ring-1 ring-brand-border/50">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-brand-lavender flex items-center justify-center ring-1 ring-brand-border/50">
                   <User size={44} className="text-brand-grayMid" />
                 </div>
               )}

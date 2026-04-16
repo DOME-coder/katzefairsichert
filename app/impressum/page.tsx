@@ -12,7 +12,7 @@ export default function Impressum() {
       <div className="mx-auto max-w-3xl px-6">
         <Link
           href="/"
-          className="link-underline group inline-flex items-center gap-2 mb-10 font-heading text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors duration-450 ease-emil"
+          className="link-underline group inline-flex items-center gap-2 mb-10 min-h-[44px] py-2 font-heading text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors duration-450 ease-emil"
         >
           <ArrowLeft
             size={18}

@@ -48,7 +48,7 @@ export default function SectionHeader({
       {eyebrow && (
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-eyebrow text-brand-accent"
+          className="inline-flex items-center gap-2 md:gap-3 text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em] md:tracking-eyebrow text-brand-accent"
         >
           <span
             aria-hidden="true"

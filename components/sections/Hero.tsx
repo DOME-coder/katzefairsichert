@@ -26,7 +26,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative h-screen min-h-[640px] flex items-center justify-center overflow-hidden bg-brand-text"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-brand-text"
     >
       {/* Parallax video background — Spec point 16 */}
       <motion.div
@@ -88,7 +88,7 @@ export default function Hero() {
           <img
             src="/images/logo-hero.png"
             alt="KatzeFAIRsichert Logo"
-            className="w-72 md:w-[24rem] lg:w-[28rem] h-auto drop-shadow-[0_4px_24px_rgba(0,0,0,0.45)]"
+            className="w-56 md:w-72 lg:w-[24rem] xl:w-[28rem] h-auto drop-shadow-[0_4px_24px_rgba(0,0,0,0.45)]"
           />
         </motion.div>
 

@@ -60,16 +60,16 @@ export default function TarifVergleich() {
               exit={{ x: directionRef.current * -240, opacity: 0 }}
               transition={{ duration: 0.6, ease: EMIL }}
             >
-              <table className="w-full min-w-[700px] border-collapse tnum">
+              <table className="w-full min-w-[480px] md:min-w-[700px] border-collapse tnum text-xs md:text-sm">
                 <thead>
                   <tr className="bg-gradient-to-b from-brand-grayLight to-brand-grayLight/40">
-                    <th className="p-5 text-left font-heading text-[11px] font-semibold uppercase tracking-eyebrow text-brand-grayMid w-[220px]">
+                    <th className="p-2.5 md:p-5 text-left font-heading text-[10px] md:text-[11px] font-semibold uppercase tracking-eyebrow text-brand-grayMid w-[120px] md:w-[220px]">
                       {TARIF.columnHeader}
                     </th>
                     {TARIF_STUFEN.map((stufe) => (
                       <th
                         key={stufe}
-                        className="p-5 text-center font-heading text-base font-semibold tracking-tight-2 text-brand-text"
+                        className="p-2.5 md:p-5 text-center font-heading text-xs md:text-base font-semibold tracking-tight-2 text-brand-text"
                       >
                         {stufe}
                       </th>
@@ -84,7 +84,7 @@ export default function TarifVergleich() {
                         rowIdx % 2 === 0 ? 'bg-brand-grayLight/30' : 'bg-white'
                       }`}
                     >
-                      <td className="relative p-4 font-heading text-sm text-brand-text font-medium">
+                      <td className="relative p-2.5 md:p-4 font-heading text-xs md:text-sm text-brand-text font-medium">
                         <span
                           aria-hidden="true"
                           className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-3/4 origin-center scale-y-0 bg-gradient-to-b from-brand-accent to-brand-accentDark rounded-full transition-transform duration-450 ease-emil group-hover/row:scale-y-100"
@@ -94,10 +94,10 @@ export default function TarifVergleich() {
                       {feature.values.map((value, colIdx) => (
                         <td
                           key={colIdx}
-                          className="p-4 text-center font-heading text-sm"
+                          className="p-2.5 md:p-4 text-center font-heading"
                         >
                           {value === '✗' ? (
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-error/10 text-brand-error font-bold">
+                            <span className="inline-flex items-center justify-center w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-error/10 text-brand-error font-bold text-xs">
                               ✗
                             </span>
                           ) : (

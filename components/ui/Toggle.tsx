@@ -21,7 +21,7 @@ export default function Toggle({ options, value, onChange }: ToggleProps) {
             key={option}
             type="button"
             onClick={() => onChange(option)}
-            className={`relative px-7 py-2.5 rounded-full font-heading font-semibold text-sm tracking-tight-2 transition-colors duration-450 ease-emil ${
+            className={`relative px-5 md:px-7 py-3 md:py-2.5 min-h-[44px] rounded-full font-heading font-semibold text-sm tracking-tight-2 transition-colors duration-450 ease-emil ${
               isActive ? 'text-white' : 'text-brand-grayMid hover:text-brand-text'
             }`}
             aria-pressed={isActive}
