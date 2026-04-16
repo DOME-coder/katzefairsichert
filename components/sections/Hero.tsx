@@ -135,7 +135,7 @@ export default function Hero() {
       {/* Scroll indicator — Spec point 17 */}
       <div
         aria-hidden="true"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
+        className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
       >
         <span className="font-heading text-[11px] font-semibold uppercase tracking-eyebrow text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
           Scroll
