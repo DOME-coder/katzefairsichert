@@ -40,7 +40,7 @@ export default function Hero() {
           loop
           playsInline
           preload="auto"
-          poster="/images/katzen/hero-katzen.jpg"
+          poster="/images/katzen/hero-poster.jpg"
         >
           <source src="/videos/hero-desktop.mp4" type="video/mp4" />
           <source src="/videos/hero-mobile.mp4" type="video/mp4" />
