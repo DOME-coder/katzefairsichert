@@ -48,9 +48,11 @@ export default function VorteileLeistungen() {
                 <div className="h-1 bg-gradient-to-r from-brand-accent via-brand-accentDark to-brand-accent bg-220 animate-gradient-drift" />
 
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="font-heading text-lg font-bold tracking-tight-2 text-brand-text mb-3">
+                  <h3 className="font-heading text-lg font-bold tracking-tight-2 text-brand-text">
                     {item.title}
                   </h3>
+
+                  <div className="mt-3 mb-4 h-px w-10 bg-brand-accent/40 transition-all duration-500 ease-emil group-hover:w-16 group-hover:bg-brand-accent" />
 
                   <p className="font-body text-sm text-brand-grayMid leading-[1.7] flex-1">
                     {displayText}
