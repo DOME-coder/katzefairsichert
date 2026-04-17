@@ -71,6 +71,9 @@ export default function VorteileLeistungen() {
                     </button>
                   )}
                 </div>
+
+                {/* Bottom accent stripe with gradient-drift animation */}
+                <div className="h-1 bg-gradient-to-r from-brand-accent via-brand-accentDark to-brand-accent bg-220 animate-gradient-drift" />
               </motion.div>
             )
           })}
