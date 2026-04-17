@@ -81,7 +81,7 @@ export default function Header() {
                 className={`link-underline relative font-heading text-[0.9375rem] font-medium tracking-tight-2 transition-colors duration-450 ease-emil whitespace-nowrap ${
                   solid
                     ? 'text-brand-text hover:text-brand-accent'
-                    : 'text-white hover:text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]'
+                    : 'text-white hover:text-brand-accent drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]'
                 }`}
               >
                 {link.label}
