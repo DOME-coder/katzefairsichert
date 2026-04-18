@@ -73,7 +73,9 @@ export default function Vorteile() {
                   {item.title}
                 </h3>
 
-                <p className="mt-3 font-body text-base text-brand-grayMid leading-[1.7]">
+                <div className="mt-3 mb-4 h-px w-10 bg-brand-accent/40 transition-all duration-500 ease-emil group-hover:w-16 group-hover:bg-brand-accent" />
+
+                <p className="font-body text-base text-brand-grayMid leading-[1.7]">
                   {item.description}
                 </p>
 

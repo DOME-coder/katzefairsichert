@@ -56,7 +56,8 @@ export default function Team() {
               <h3 className="mt-6 font-heading text-[1.5rem] font-semibold tracking-tight-2 text-brand-text">
                 {member.name}
               </h3>
-              <p className="mt-1 font-body text-sm text-brand-grayMid">
+              <div className="mt-3 mb-3 h-px w-10 bg-brand-accent/40 transition-all duration-500 ease-emil group-hover:w-16 group-hover:bg-brand-accent" />
+              <p className="font-body text-sm text-brand-grayMid">
                 {member.role}
               </p>
             </motion.div>

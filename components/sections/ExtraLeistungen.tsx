@@ -43,7 +43,8 @@ export default function ExtraLeistungen() {
                 <h3 className="font-heading text-lg font-semibold tracking-tight-2 text-brand-text">
                   {item.title}
                 </h3>
-                <p className="mt-3 font-body text-sm text-brand-grayMid leading-[1.7]">
+                <div className="mt-3 mb-4 h-px w-10 bg-brand-accent/40 transition-all duration-500 ease-emil group-hover:w-16 group-hover:bg-brand-accent" />
+                <p className="font-body text-sm text-brand-grayMid leading-[1.7]">
                   {item.text}
                 </p>
               </div>
